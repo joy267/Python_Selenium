@@ -13,6 +13,6 @@ radio_buttons = driver.find_elements(By.CLASS_NAME, 'answer')
 print(len(radio_buttons))
 
 # By TAG_NAME :
-links = driver.find_elements(By.TAG_NAME, 'a')
-print(len(links))
+# links = driver.find_elements(By.TAG_NAME, 'a')
+# print(len(links))
 
