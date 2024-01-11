@@ -1,4 +1,4 @@
-# Test_Cases
+# Basic_Selenium_Oparations
 # ---------------
 # 1) Open the browser
 # 2) Enter the URL “http://practice.automationtesting.in/”

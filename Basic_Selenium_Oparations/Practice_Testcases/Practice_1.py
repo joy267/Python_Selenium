@@ -1,4 +1,4 @@
-# Test_Cases
+# Basic_Selenium_Oparations
 # ---------------
 # 1. Open Web Browser(Chrome/firefox/IE).
 # 2. Open URL https://practicetestautomation.com/practice-test-exceptions/
