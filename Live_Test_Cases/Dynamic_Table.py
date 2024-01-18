@@ -12,4 +12,12 @@ driver = webdriver.Chrome(service=s)
 driver.get("https://practice.expandtesting.com/dynamic-table")
 driver.maximize_window()
 
-driver.find_element()
+Actual_CPU_Value = driver.find_element(By.XPATH, "//tr[contains(.,'Chrome')]//td[contains(.,'%')]").text
+print("Chrome CPU:", Actual_CPU_Value)
+
+Expected_CPU_Value = driver.find_element(By.XPATH, "//p[contains(.,'%')]").text
+print(Expected_CPU_Value)
+
+
+
+driver.quit()
