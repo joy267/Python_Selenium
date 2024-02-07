@@ -6,7 +6,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 
-ser = Service("C:\\Users\\Mrityunjoy Mandal\\OneDrive\\Documents\\chromedriver-win64\\chromedriver.exe")
+ser = Service("C:\\Selenium_Python\\chromedriver-win64\\chromedriver.exe")
 driver = webdriver.Chrome(service=ser)
 
 driver.get("https://practice.expandtesting.com/notification-message-rendered")
