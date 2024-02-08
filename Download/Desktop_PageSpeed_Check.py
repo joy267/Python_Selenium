@@ -5,17 +5,18 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver import ActionChains
-
+import random
 
 options = webdriver.ChromeOptions()
 options.add_experimental_option("detach", True)
 
-s = Service("C:\\Selenium_Python\\chromedriver-win64\\chromedriver.exe")
+
+s = Service("C:\\Users\\Mrityunjoy Mandal\\OneDrive\\Documents\\chromedriver-win64\\chromedriver.exe")
 driver = webdriver.Chrome(options=options,service=s)
 
-driver.get("https://staging-ppcsport.kinsta.cloud/")
 driver.maximize_window()
-driver.implicitly_wait(10)
+driver.get(f"https://staging-ppcsport.kinsta.cloud/?keyword=seleniumtest{random.random()}")
+driver.implicitly_wait(30)
 time.sleep(2)
 
 # about_us = driver.find_element(By.LINK_TEXT, "About Us")
@@ -69,7 +70,19 @@ time.sleep(2)
 driver.get("https://pagespeed.web.dev/")
 time.sleep(2)
 
-driver.find_element(By.XPATH, "//input[@class='VfPpkd-fmcmS-wGMbrd ']").send_keys("https://staging-ppcsport.kinsta.cloud/")
+driver.find_element(By.XPATH, "//button/span[text()='Ok, Got it.']").click()
+time.sleep(1)
+driver.find_element(By.XPATH, "//input[@class='VfPpkd-fmcmS-wGMbrd ']").send_keys(f"https://staging-ppcsport.kinsta.cloud/?keyword=seleniumtest{random.random()}")
 time.sleep(1)
 driver.find_element(By.XPATH, "//span[text()='Analyze']").click()
+driver.find_element(By.ID, "desktop_tab").click()
+time.sleep(50)
+
+desktop_page_speed = driver.find_element(By.CLASS_NAME, "lh-exp-gauge__percentage").text
+print(desktop_page_speed)
+
+driver.quit()
+
+
+
 
