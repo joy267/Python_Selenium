@@ -7,7 +7,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.common.exceptions import TimeoutException, NoSuchElementException
 
-s = Service("C:\\Users\\Mrityunjoy Mandal\\OneDrive\\Documents\\chromedriver-win64\\chromedriver.exe")
+s = Service("C:\\Projects\\Selenium_Automation\\Chomedriver\\chromedriver-win64\\chromedriver.exe")
 driver = webdriver.Chrome(service=s)
 driver.implicitly_wait(10)
 
@@ -37,27 +37,33 @@ time.sleep(2)
 users = driver.find_element(By.XPATH, "//a[normalize-space()='Users']").click()
 time.sleep(1)
 edit_user = driver.find_element(By.XPATH, "//a[normalize-space()='test@solivatech.com']").click()
-time.sleep(1)
+time.sleep(3)
 
 # If you edit any permission then give the locator of the changing element.
 
-save_button = driver.find_element(By.NAME, "_save").click()
+body = driver.find_element(By.TAG_NAME, "body")
+body.send_keys(Keys.PAGE_DOWN)
+body.send_keys(Keys.PAGE_DOWN)
+body.send_keys(Keys.PAGE_DOWN)
+
+save = driver.find_element(By.XPATH, "//input[@name='_save']").click()
 time.sleep(1)
-
-
 
 
 # Error handling :
 
-try:
-    error_message = driver.find_element(By.XPATH, "//li[normalize-space()='User with this Email Address already exists.']").text
-    print(error_message)
+success_message = driver.find_element(By.XPATH, "//li[@class='success']")
 
-# Need to add more error handling for other fields
+if success_message.is_displayed():
+    print(success_message.text)
 
-except (TimeoutException, NoSuchElementException):
-    success_message = driver.find_element(By.XPATH, "//li[@class='success']").text
-    print(success_message)
+else:
+    print("The user changes is fail")
+
+
+
+driver.quit()
+
 
 
 driver.quit()
