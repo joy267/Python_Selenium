@@ -215,10 +215,10 @@ try:
 except ():
     print("There has some problem for edit brand display name")
 
-except(NoSuchElementException):
+except NoSuchElementException:
     print("The element is not present in the webpage")
 
-except (TimeoutException):
+except TimeoutException:
     print("Timeout Error")
 
 

@@ -10,13 +10,11 @@ s = Service("C:\\Projects\\Selenium_Automation\\Chomedriver\\chromedriver-win64\
 driver = webdriver.Chrome(service=s)
 driver.implicitly_wait(5)
 
-
 # Growth_ETL URL -
 
 
 driver.maximize_window()
 driver.get("https://staging.etloptival.com/admin/")
-
 
 # Login Credencials
 
@@ -32,7 +30,6 @@ login_button.click()
 
 time.sleep(2)
 
-
 # Add Brand Display Name To Websites
 
 add_button = driver.find_element(By.XPATH, "//tr[@class='model-branddisplaynametowebsite']/td[1]").click()
@@ -44,7 +41,7 @@ select_brand_display_name = driver.find_element(By.XPATH, "//span[@role='combobo
 time.sleep(1)
 select_brand_display_name.click()
 time.sleep(1)
-search_brand_display_name = driver.find_element(By.XPATH,"//input[@role='searchbox']")
+search_brand_display_name = driver.find_element(By.XPATH, "//input[@role='searchbox']")
 time.sleep(1)
 search_brand_display_name.send_keys(brand_display_name)
 time.sleep(2)
@@ -60,7 +57,7 @@ time.sleep(1)
 websites.click()
 time.sleep(1)
 
-select_website = driver.find_element(By.XPATH,"//select[@name='website']")
+select_website = driver.find_element(By.XPATH, "//select[@name='website']")
 select_website.send_keys(Keys.DOWN)
 select_website.send_keys(Keys.DOWN)
 select_website.send_keys(Keys.DOWN)
@@ -69,8 +66,6 @@ time.sleep(1)
 save_button = driver.find_element(By.NAME, "_save")
 save_button.click()
 time.sleep(1)
-
-
 
 try:
     success_message = driver.find_element(By.XPATH, "//li[@class='success']").text
@@ -82,21 +77,22 @@ except:
     print(error_message)
     time.sleep(1)
 
-    brand_display_name_to_website = driver.find_element(By.XPATH,"//div[@class='breadcrumbs']/a[normalize-space()='Brand Display Name To Websites']")
+    brand_display_name_to_website = driver.find_element(By.XPATH,
+                                                        "//div[@class='breadcrumbs']/a[normalize-space()='Brand Display Name To Websites']")
     brand_display_name_to_website.click()
     time.sleep(1)
 
-    find_brand_display_name = driver.find_element(By.XPATH,"//input[@id='searchbar']")
+    find_brand_display_name = driver.find_element(By.XPATH, "//input[@id='searchbar']")
     time.sleep(1)
 
     find_brand_display_name.send_keys(brand_display_name)
     time.sleep(1)
 
-    search_button = driver.find_element(By.XPATH,"//input[@value='Search']")
+    search_button = driver.find_element(By.XPATH, "//input[@value='Search']")
     search_button.click()
     time.sleep(1)
 
-    existing_brand_display_name = driver.find_element(By.XPATH,"//th[@class='field-brand_display_name nowrap']").text
+    existing_brand_display_name = driver.find_element(By.XPATH, "//th[@class='field-brand_display_name nowrap']").text
     time.sleep(1)
 
     try:
@@ -108,11 +104,9 @@ except:
     except (NoSuchElementException):
         print("Can't find the brand display name to website")
 
-
-
 # Change website for brand display name
 
-edit_brand_display_name_to_website = driver.find_element(By.XPATH,"//table[@id='result_list']/tbody/tr[1]/th[1]/a")
+edit_brand_display_name_to_website = driver.find_element(By.XPATH, "//table[@id='result_list']/tbody/tr[1]/th[1]/a")
 edit_brand_display_name_to_website.click()
 time.sleep(1)
 
@@ -131,16 +125,13 @@ time.sleep(1)
 success_message = driver.find_element(By.XPATH, "//li[@class='success']").text
 print(success_message)
 
-
 try:
     print("Test Case is pass successfully")
 
-except (NoSuchElementException):
+except NoSuchElementException:
     print("The element is not present in the webpage")
 
-except (TimeoutException):
+except TimeoutException:
     print("Timeout Error")
-
-
 
 driver.quit()
