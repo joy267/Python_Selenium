@@ -18,7 +18,7 @@ options.add_experimental_option("detach", True)
 
 # Here I give the webdriver path for test.
 
-s = Service("C:\\Users\\Mrityunjoy Mandal\\OneDrive\\Documents\\chromedriver-win64\\chromedriver.exe")
+s = Service("C:\\Projects\\Selenium_Automation\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe")
 driver = webdriver.Chrome(options=options, service=s)
 
 
