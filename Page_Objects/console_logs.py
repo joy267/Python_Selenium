@@ -28,8 +28,6 @@ def open_excel_sheet(sheet_name):
 class Console_Logs:
 
     def __init__(self):
-        self.chrome_driver_path = None
-        self.chrome_path = None
         self.driver = None
         self.webdriver_path = "C:\\Projects\\Python_Selenium\\Webdrivers\\chromedriver.exe"
 
@@ -40,23 +38,10 @@ class Console_Logs:
         df.to_excel(sheet_name, index=False)
 
     def open_webdriver(self):
-        self.chrome_path = shutil.which("chromium")
-        self.chrome_driver_path = shutil.which("chromium-chromedriver")
-
-        # Set Chrome options
         options = Options()
-        options.binary_location = self.chrome_path  # Use installed Chrome binary
-        options.add_argument("--headless")  # Run in headless mode
-        options.add_argument("--no-sandbox")  # Required for Streamlit Cloud
-        options.add_argument("--disable-dev-shm-usage")  # Prevent resource issues
-
-        # Set up WebDriver
-        service = Service(self.chrome_driver_path)
-        driver = webdriver.Chrome(service=service, options=options)
-        # options = Options()
-        # options.add_argument("--headless")  # for hide the web browser
-        # s = Service(self.webdriver_path)
-        # self.driver = webdriver.Chrome(service=s, options=options)
+        options.add_argument("--headless")  # for hide the web browser
+        s = Service(self.webdriver_path)
+        self.driver = webdriver.Chrome(service=s, options=options)
 
     def maximize_window(self):
         self.driver.maximize_window()
