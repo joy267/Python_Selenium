@@ -28,7 +28,7 @@ class Console_Logs:
 
     def __init__(self):
         self.driver = None
-        self.webdriver_path = "C:\\Projects\\automation\\Chrome_Webdriver\\chromedriver.exe"
+        self.webdriver_path = "C:\\Projects\\Python_Selenium\\Webdrivers\\chromedriver.exe"
 
         self.website_body = (By.TAG_NAME, "body")
 
