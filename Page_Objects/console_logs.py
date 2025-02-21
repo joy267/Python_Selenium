@@ -9,7 +9,7 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 from selenium.webdriver.chrome.options import Options
-import shutil
+from webdriver_manager.chrome import ChromeDriverManager
 
 
 def configure_chrome_options_for_logging():
@@ -40,7 +40,8 @@ class Console_Logs:
     def open_webdriver(self):
         options = Options()
         options.add_argument("--headless")  # for hide the web browser
-        s = Service(self.webdriver_path)
+        s = Service(ChromeDriverManager().install())
+        # s = Service(self.webdriver_path)
         self.driver = webdriver.Chrome(service=s, options=options)
 
     def maximize_window(self):

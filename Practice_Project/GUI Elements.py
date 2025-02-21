@@ -73,6 +73,23 @@ driver.get("https://testautomationpractice.blogspot.com/")
 # time.sleep(1)
 
 # Date Picker 1
+# date_picker = driver.find_element(By.ID, "datepicker")
+# date_picker.click()
+# prev_button = driver.find_element(By.XPATH, "//a[@title='Prev']")
+# next_button = driver.find_element(By.XPATH, "//a[@title='Next']")
+#
+# date = driver.find_element(By.XPATH, "//a[normalize-space()='25']")
+
+# # next_button.click()
+# # time.sleep(2)
+# select = WebDriverWait(driver, 30).until(EC.element_to_be_clickable(date))
+# select.click()
+
+# # Close Browser
+# time.sleep(2)
+# driver.quit()
+
+# Date Picker 2
 date_picker = driver.find_element(By.ID, "datepicker")
 date_picker.click()
 prev_button = driver.find_element(By.XPATH, "//a[@title='Prev']")
@@ -80,11 +97,11 @@ next_button = driver.find_element(By.XPATH, "//a[@title='Next']")
 
 date = driver.find_element(By.XPATH, "//a[normalize-space()='25']")
 
-next_button.click()
-time.sleep(2)
+# next_button.click()
+# time.sleep(2)
 select = WebDriverWait(driver, 30).until(EC.element_to_be_clickable(date))
 select.click()
 
 # # Close Browser
 time.sleep(2)
-# driver.quit()
+driver.quit()
