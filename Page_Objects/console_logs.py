@@ -9,7 +9,6 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 from selenium.webdriver.chrome.options import Options
-from webdriver_manager.chrome import ChromeDriverManager
 
 
 def configure_chrome_options_for_logging():
@@ -32,6 +31,8 @@ class Console_Logs:
         self.webdriver_path = "C:\\Projects\\Python_Selenium\\Webdrivers\\chromedriver.exe"
 
         self.website_body = (By.TAG_NAME, "body")
+        self.Selenium_Grid_URL = ("https://mrityunjoymandal_z9HFK1:KRoMU8cxK2wY5AoZPuCB@hub-cloud.browserstack.com/wd"
+                                  "/hub")
 
     def create_excel_sheet(sheet_name):
         df = pd.DataFrame
@@ -40,9 +41,8 @@ class Console_Logs:
     def open_webdriver(self):
         options = Options()
         options.add_argument("--headless")  # for hide the web browser
-        s = Service(ChromeDriverManager().install())
-        # s = Service(self.webdriver_path)
-        self.driver = webdriver.Chrome(service=s, options=options)
+        s = Service(self.webdriver_path)
+        self.driver = webdriver.Remote(command_executor=self.Selenium_Grid_URL, options=options)
 
     def maximize_window(self):
         self.driver.maximize_window()
