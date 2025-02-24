@@ -41,7 +41,7 @@ class Console_Logs:
     def open_webdriver(self):
         options = Options()
         options.add_argument("--headless")  # for hide the web browser
-        s = Service(self.webdriver_path)
+        # s = Service(self.webdriver_path)
         self.driver = webdriver.Remote(command_executor=self.Selenium_Grid_URL, options=options)
 
     def maximize_window(self):

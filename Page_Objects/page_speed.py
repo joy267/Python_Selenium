@@ -42,12 +42,14 @@ class Page_Speed:
                                                                      "1]/div[2]")
         self.locator_of_desktop_speed_index = (By.XPATH, "//div[@id='speed-index']/div[1]/div[2]")
         self.data_list = []
+        self.Selenium_Grid_URL = ("https://mrityunjoymandal_z9HFK1:KRoMU8cxK2wY5AoZPuCB@hub-cloud.browserstack.com/wd"
+                                  "/hub")
 
     def open_webdriver(self):
         options = Options()
-        options.add_argument("--headless")
-        s = Service(self.webdriver_path)
-        self.driver = webdriver.Chrome(service=s, options=options)
+        options.add_argument("--headless")  # for hide the web browser
+        # s = Service(self.webdriver_path)
+        self.driver = webdriver.Remote(command_executor=self.Selenium_Grid_URL, options=options)
 
     def maximize_window(self):
         self.driver.maximize_window()
