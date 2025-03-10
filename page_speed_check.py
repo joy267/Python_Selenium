@@ -16,7 +16,7 @@ def page_performance():
     st.markdown("--------------------------------")
 
     with st.form("my_form", clear_on_submit=False):
-        test_url = st.text_input("**Enter Your Test URL** : ", "")
+        test_url = st.text_input("**Enter Your Test URL** : ", "", placeholder="Please enter your test URL")
 
         col1, col2, col3, col4 = st.columns([1, 2, 3, 1])
         with col4:

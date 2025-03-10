@@ -13,7 +13,7 @@ def console_log():
     st.markdown("--------------------------------")
 
     with st.form("my_form", clear_on_submit=True):
-        test_url = st.text_input("**Enter Your Test URL** :", "")
+        test_url = st.text_input("**Enter Your Test URL** :", "", placeholder="Please enter your test URL")
         keyword = test_url + str("/?keyword=console_log_checking_") + str(random.randint(0, 100000)) + str("&enableconsole")
 
         col1, col2, col3, col4 = st.columns([1, 2, 3, 1])
