@@ -2,7 +2,7 @@ firebase_admin
 Pyrebase4
 streamlit_option_menu
 validate_email_address
-chromedrivermanager
+#chromedrivermanager
 streamlit
 #webdriver-manager
 #pywin32
