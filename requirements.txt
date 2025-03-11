@@ -4,6 +4,6 @@ streamlit_option_menu
 validate_email_address
 chromedrivermanager
 streamlit
-webdriver-manager
-pywin32
+#webdriver-manager
+#pywin32
 selenium
