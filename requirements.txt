@@ -8,3 +8,4 @@ streamlit
 #pywin32
 selenium
 openpyxl
+setuptools
