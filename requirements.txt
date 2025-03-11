@@ -7,3 +7,4 @@ streamlit
 #webdriver-manager
 #pywin32
 selenium
+openpyxl
