@@ -1,24 +1,22 @@
 import streamlit as st
+from streamlit_option_menu import option_menu
+
 from Page_Objects.test_page_object import Tracking
+from console_logs import console_log
+from page_speed_check import page_performance
 
-test = Tracking()
 
-st.title("Functional Testing")
+def main_app():
+    selected = option_menu(
+        menu_title="Web Testing",
+        options=['Console Logs', 'Page Performance', 'SignUp', 'Login'],
+        icons=['circle-fill', 'circle-fill', 'circle-fill', 'circle-fill'],
+        menu_icon='display',
+        default_index=0,
+    )
 
-st.divider()
+    if selected == 'Console Logs':
+        console_log()
 
-with st.form("my_form", clear_on_submit=False):
-    webdriver = st.selectbox("Choose a WebDriver", ("Chrome WebDriver", "Edge WebDriver", "Firefox WebDriver"))
-
-    if webdriver == "Chrome WebDriver":
-        test.open_chrome_webdriver()
-    if webdriver == "Edge WebDriver":
-        test.open_edge_webdriver()
-    if webdriver == "Firefox WebDriver":
-        test.open_firefox_webdriver()
-
-    url = st.text_input("**Enter the test url **:", "")
-
-    col1, col2, col3, col4 = st.columns([1, 2, 3, 1])
-    with col4:
-        run = st.form_submit_button("Run")
+    elif selected == 'Page Performance':
+        page_performance()

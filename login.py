@@ -1,7 +1,11 @@
 import streamlit as st
 import pyrebase
 import firebase_admin
+from streamlit_option_menu import option_menu
 from validate_email_address import validate_email
+
+from console_logs import console_log
+from page_speed_check import page_performance
 
 
 def login():
@@ -45,7 +49,7 @@ def login():
         return validate_email(login_email)
 
     # 🏠 Login Form
-    if not st.session_state.form_submitted:
+    if not st.session_state.authenticated:
 
         with st.form(key='login_form', clear_on_submit=True):
             st.header("**:green[Login]**")
