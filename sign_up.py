@@ -32,6 +32,9 @@ def sign_up():
     def is_valid_email(email):
         return validate_email(email)
 
+    if "show_signup" not in st.session_state:
+        st.session_state.show_signup = False
+
     # def sign_up():
 
     with ((st.form(key='signup', clear_on_submit=False))):
@@ -86,3 +89,11 @@ def sign_up():
 
     except Exception as e:
         st.error(" ❌  ❌  Account already exists")
+
+    st.markdown("Already have an account?")
+    if st.button("Back to Login"):
+        st.session_state.show_signup = False
+        st.rerun()
+
+    st.markdown("---")
+    st.markdown("<center><small>Created by <b>Mrityunjoy Mandal</b> © 2025</small></center>", unsafe_allow_html=True)

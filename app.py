@@ -6,31 +6,30 @@ from practice_automation_code import main_app
 from sign_up import sign_up
 from login import login
 
-# drop_down = st.sidebar.selectbox("Login/Sign Up", ("Login", "Sign Up"))
-#
-# if drop_down == "Login":
-#     login()
-#     if "authenticated" not in st.session_state:
-#         st.session_state.authenticated = True
-#         st.switch_page(main_app())
+if "authenticated" not in st.session_state:
+    st.session_state.authenticated = False
 
-with st.sidebar:
-    selected = option_menu(
-        menu_title="Web Testing",
-        options=['Console Logs', 'Page Performance', 'SignUp', 'Login'],
-        icons=['circle-fill', 'circle-fill', 'circle-fill', 'circle-fill'],
-        menu_icon='display',
-        default_index=0,
-    )
+if "show_signup" not in st.session_state:
+    st.session_state.show_signup = False
 
-if selected == 'Console Logs':
-    console_log()
+if st.session_state.authenticated:
+    with st.sidebar:
+        selected = option_menu(
+            menu_title="Web Testing",
+            options=['Console Logs', 'Page Performance'],
+            icons=['circle-fill', 'circle-fill', 'circle-fill', 'circle-fill'],
+            menu_icon='display',
+            default_index=0,
+        )
 
-elif selected == 'Page Performance':
-    page_performance()
+    if selected == 'Console Logs' and st.session_state.authenticated:
+        console_log()
 
-elif selected == 'SignUp':
+    elif selected == 'Page Performance' and st.session_state.authenticated:
+        page_performance()
+
+elif st.session_state.show_signup:
     sign_up()
 
-elif selected == 'Login':
+else:
     login()

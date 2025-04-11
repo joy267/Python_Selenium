@@ -237,3 +237,6 @@ def page_performance():
         st.dataframe(df, use_container_width=True)
 
         page_speed.close_window()
+
+    st.markdown("---")
+    st.markdown("<center><small>Created by <b>Mrityunjoy Mandal</b> © 2025</small></center>", unsafe_allow_html=True)

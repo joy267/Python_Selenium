@@ -12,9 +12,13 @@ def console_log():
 
     st.markdown("--------------------------------")
 
+    if "authenticated" not in st.session_state:
+        st.session_state.authenticated = False
+
     with st.form("my_form", clear_on_submit=True):
         test_url = st.text_input("**Enter Your Test URL** :", "", placeholder="Please enter your test URL")
-        keyword = test_url + str("/?keyword=console_log_checking_") + str(random.randint(0, 100000)) + str("&enableconsole")
+        keyword = test_url + str("/?keyword=console_log_checking_") + str(random.randint(0, 100000)) + str(
+            "&enableconsole")
 
         col1, col2, col3, col4 = st.columns([1, 2, 3, 1])
         with col4:
@@ -76,3 +80,6 @@ def console_log():
         df = pd.DataFrame(level)
 
         st.dataframe(df)
+
+    st.markdown("---")
+    st.markdown("<center><small>Created by <b>Mrityunjoy Mandal</b> © 2025</small></center>", unsafe_allow_html=True)
