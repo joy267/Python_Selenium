@@ -13,7 +13,7 @@ class Page_Speed:
         self.wait = None
         self.driver = None
         self.webdriver_path = "C:\\Projects\\Python_Selenium\\Webdrivers\\chromedriver.exe"
-        self.locator_of_input_field_pagespeed_insights = (By.XPATH, "//input[@id='i4']")
+        self.locator_of_input_field_pagespeed_insights = (By.XPATH, "//input[@inputmode='url']")
         self.click_button_locator = (By.XPATH, "//span[text()='Analyze']")
         self.wait_element = (By.XPATH, "//div[@class='lh-exp-gauge__svg-wrapper']")
         self.locator_of_mobile_device = (By.XPATH, "//button[@id='mobile_tab']/span[1]/span[1]")
