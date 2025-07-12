@@ -11,11 +11,13 @@ s = Service("C:\\Selenium_Python\\chromedriver-win64\\chromedriver.exe")
 driver = webdriver.Chrome(service=s)
 
 
-driver.get("https://practice.expandtesting.com/broken-images")
+driver.get("https://www.google.com/search?q=testing+tools")
 driver.maximize_window()
 
 
-image_list = driver.find_elements(By.TAG_NAME, "img")
+image_list = driver.find_elements(By.ID, "dimg_Kk06ZrCGFKjCjuMP16-RkAs_45")
+scr = image_list.__getattribute__()
+print(scr)
 
 
 
